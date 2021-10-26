@@ -1,0 +1,44 @@
+#equipa {
+  text-align: center;
+}
+
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 2px;
+}
+
+.gallery #person {
+  width: 350px;
+  height: 100%;
+  padding: 10px;
+  background-color: grey;
+  margin-bottom: 20px;
+}
+
+.gallery p {
+  color: black;
+  text-align: center;
+}
+
+.gallery img {
+  width: 100%;
+  height: 330px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 150px;
+          flex: 1 1 150px;
+  -webkit-box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.664);
+          box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.664);
+}
+
+.gallery #pinfo, .gallery #pinfo1, .gallery #pinfo2, .gallery #pinfo3, .gallery #pinfo4 {
+  display: none;
+}
+/*# sourceMappingURL=equipa.css.map */

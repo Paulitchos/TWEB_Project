@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/USF.css">
+  <title>Indicadores</title>
+  <script src="js/indicadores.js"></script>
+</head>
+
+<body>
+  <!-- Showcase & Nav -->
+  <div class="navbar">
+    <a id="sns-logo" href="https://www.sns.gov.pt/"><img
+        src="http://www.ulsguarda.min-saude.pt/wp-content/themes/uls_global/images/logo_SNS.svg" alt="SNS"></a>
+
+    <a id="usf-logo" title="Clique para ir para a página principal" href="USF.html"><img class="ulslogo"
+        src="https://images-na.ssl-images-amazon.com/images/I/515%2Br6pkGUL.png"
+        alt="Unidade Local de Saúde de Guarda"></a>
+
+    <a id="login" href="login.html" id="equipa"><img src="img/login.png" alt="" title="Faça o login"></a>
+
+    <nav id="menu">
+
+      <div class="submenumain">
+        <a href="#" id="quemsomos">Quem Somos</a>
+        <ul class="submenu">
+          <li id="subelement"><a href="Quemsomos.html" class="missaovalores">Missão e Valores</a></li>
+          <li id="subelement"><a href="equipa.html" class="equipa">Equipa</a></li>
+        </ul>
+      </div>
+
+
+
+      <div class="submenumain">
+        <a href="#" id="oquefazemos">O que Fazemos</a>
+        <ul class="submenu">
+          <li id="subelement"><a href="PrincipaisAções.html" class="ações">Principais Ações</a></li>
+          <li id="subelement"><a href="Serviços.html" class="serviços">Serviços</a></li>
+        </ul>
+      </div>
+
+
+
+      <div class="submenumain">
+        <a href="indicadores.html" id="Indicadores">Indicadores</a>
+      </div>
+
+
+      <div class="submenumain">
+        <a href="#" id="contactos">Contactos</a>
+        <ul class="submenu">
+          <li id="subelement"><a href="localização.html" class="chegar">Como chegar</a></li>
+          <li id="subelement"><a href="contactos.html" class="contactos">Contactos Gerais</a></li>
+
+        </ul>
+      </div>
+
+
+      <div class="submenumain">
+        <a href="recursos.html" id="recursos">Recursos</a>
+      </div>
+
+      <div class="submenumain">
+        <a href="contact.html" id="FAQ">CONTACTE-NOS</a>
+      </div>
+
+    </nav>
+
+  </div>
+
+  <br><br><br><br><br>
+  <!-- Lobby -->
+  <div class="context">
+    <br /><br />
+    <h1 style="margin-left: 20px;">Indicadores</h1>
+                            <!-- Botões -->
+    <button id="btn-indic" type="button" class="btn btn-primary" onclick="manageChart(1)">Consultas de Especialidade</button>
+    <button id="btn-indic" type="button" class="btn btn-primary" onclick="manageChart(2)">Nº de Habitantes por pessoal</button>
+    <button id="btn-indic" type="button" class="btn btn-primary" onclick="manageChart(3)">Nº de Médicos</button>
+    <button id="btn-indic" type="button" class="btn btn-primary" onclick="manageChart(4)">Acidentes de Viação</button>
+    <button id="btn-indic" type="button" class="btn btn-primary" onclick="manageChart(5)">Farmácias e postos farmacêuticos móveis</button>
+    <button id="btn-indic" type="button" class="btn btn-primary" onclick="manageChart(6)">Internamentos no hospital</button>
+                              <!-- Chart Div's -->
+    <div id="div0" class="chart-div">
+      <div id="piechart1993" style="width: 900px; height: 500px;"></div>
+      <div id="piechart2009" style="width: 900px; height: 500px;"></div>
+      <div id="piechart2012" style="width: 900px; height: 500px;"></div>
+    </div>
+    <div id="div1">
+      <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    </div>
+    <div id="div2">
+      <div id="curve_chart" style="width: 900px; height: 500px"></div>
+    </div>
+    <div id="div3">
+      <div id="curve_chart1" style="width: 900px; height: 500px"></div>
+    </div>
+    <div id="div4">
+      <div id="chart_div1" style="width: 900px; height: 500px;"></div>
+    </div>
+    <div id="div5">
+      <div id="curve_chart2" style="width: 900px; height: 500px"></div>
+    </div>
+    <!-- Gráfico 6-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart);
+  
+      function drawChart() {
+        // Porta Data
+        var data = google.visualization.arrayToDataTable([
+          ['Ano','Nº Internados no hospital'],
+          ['1999', 1902],
+          ['2001', 2352],
+          ['2010', 838],
+          ['2011', 1134],
+          ['2012', 1289]
+        ]);
+  
+        var options = {
+          title: 'SNS: Internamentos no hospital de Seia',
+          titleTextStyle: {
+            color: 'black',
+            fontName: 'Cursive',
+            fontSize: 20,
+            bold: true,
+            italic: false
+          },
+          vAxis: { title: 'Nº de Internados' },
+          curveType: 'function',
+          legend: { position: 'right' },
+          width: 900,
+          height: 500
+        };
+  
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+  
+        chart.draw(data, options);
+  
+        manageChart(1);
+      }
+    </script>
+    <!-- Gráfico 5-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(drawVisualization);
+      //Nº de Farmácias
+      function drawVisualization() {
+        // Porta Data
+        var data = google.visualization.arrayToDataTable([
+          ['Ano', 'Numero de Farmácias'],
+          ['1990', 10],
+          ['2001', 10],
+          ['2009', 10],
+          ['2011', 10],
+          ['2013', 10],
+          ['2014', 10]
+        ]);
+  
+        var options = {
+          title: 'Farmácias e postos farmacêuticos móveis',
+          titleTextStyle: {
+            color: 'black',
+            fontName: 'Cursive',
+            fontSize: 20, // (don't specify px)
+            bold: true,
+            italic: false
+          },
+          vAxis: { title: 'Nº de Farmácias' },
+          hAxis: { title: 'Ano' },
+          seriesType: 'bars',
+          series: { 2: { type: 'line', color: 'blue' } },
+          width: 900,
+          height: 500
+        };
+  
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div1'));
+        chart.draw(data, options);
+  
+      }
+  
+    </script>
+    
+  <!-- Gráfico 4-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+  
+    function drawChart() {
+      // Porta Data
+      var data = google.visualization.arrayToDataTable([
+        ['Ano', 'Feridos', 'Mortos'],
+        ['1991', 129, 2],
+        ['2001', 158, 3],
+        ['2009', 79, 3],
+        ['2010', 81, 0],
+        ['2012', 94, 0],
+        ['2013', 104, 2]
+      ]);
+  
+      var options = {
+        title: 'Acidentes de viação',
+        titleTextStyle: {
+          color: 'black',
+          fontName: 'Cursive',
+          fontSize: 20,
+          bold: true,
+          italic: false
+        },
+        vAxis: { title: ' Nº de Acidentes de viação' },
+        curveType: 'function',
+        legend: { position: 'right' },
+        width: 900,
+        height: 500
+      };
+  
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart1'));
+  
+      chart.draw(data, options);
+  
+      //document.getElementById('curve_chart').style.display='none'; // Invisivel por default
+      manageChart(1);
+    }
+  </script>
+    <!-- Gráfico 3-->
+  
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart);
+      // 1993
+      function drawChart() {
+  
+        var data = google.visualization.arrayToDataTable([
+          ['Especialidade', 'nº de consultas'],
+          ['Total', 85969],
+          ['Medicina geral e familiar', 76185],
+          ['Estomatologia e medicina dentária', 0],
+          ['Ginecologia', 115],
+          ['Oftalmologia', 0],
+          ['Otorrinolaringologia', 0],
+          ['Planeamento familiar', 1140],
+          ['Pneumologia', 0],
+          ['Pediatria', 6921],
+          ['Saúde materna', 1608]
+        ]);
+  
+        var options = {
+          title: 'Consultas por especialidade médica em 1993',
+        };
+  
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1993'));
+  
+        chart.draw(data, options);
+  
+        //document.getElementById('piechart1993').style.display='none';// Invisivel por default
+      }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart);
+      //2009
+      function drawChart() {
+  
+        var data = google.visualization.arrayToDataTable([
+          ['Especialidade', 'nº de consultas'],
+          ['Total', 65832],
+          ['Medicina geral e familiar', 58059],
+          ['Estomatologia e medicina dentária', 0],
+          ['Ginecologia', 0],
+          ['Oftalmologia', 0],
+          ['Otorrinolaringologia', 0],
+          ['Planeamento familiar', 680],
+          ['Pneumologia', 0],
+          ['Pediatria', 6047],
+          ['Saúde materna', 1046]
+        ]);
+  
+        var options = {
+  
+          title: 'Consultas por especialidade médica em 2009',
+        };
+  
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2009'));
+  
+        chart.draw(data, options);
+  
+        //document.getElementById('piechart2009').style.display='none';// Invisivel por default
+      }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart);
+      //2012
+      function drawChart() {
+  
+        var data = google.visualization.arrayToDataTable([
+          ['Especialidade', 'nº de consultas'],
+          ['Total', 76991],
+          ['Medicina geral e familiar', 70011],
+          ['Estomatologia e medicina dentária', 0],
+          ['Ginecologia', 0],
+          ['Oftalmologia', 0],
+          ['Otorrinolaringologia', 0],
+          ['Planeamento familiar', 917],
+          ['Pneumologia', 0],
+          ['Pediatria', 5108],
+          ['Saúde materna', 955]
+        ]);
+  
+        var options = {
+          title: 'Consultas por especialidade médica em 2012',
+        };
+  
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2012'));
+  
+        chart.draw(data, options);
+  
+        //document.getElementById('piechart2012').style.display='none';// Invisivel por default
+      }
+    </script>
+    <!-- Gráfico 2-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(drawVisualization);
+  
+      function drawVisualization() {
+        // Porta Data
+        var data = google.visualization.arrayToDataTable([
+          ['Ano', 'Médicos', 'Enfermeiros', 'Total'],
+          ['1999', 165, 938, 614.6],
+          ['2001', 135, 1120, 682],
+          ['2009', 157, 1167, 623],
+          ['2010', 139, 1110, 609.4],
+          ['2011', 139, 1110, 609.4],
+          ['2012', 136, 691, 569.6]
+        ]);
+  
+        var options = {
+          title: 'Habitantes por pessoal ao serviço',
+          titleTextStyle: {
+            color: 'black',   // any HTML string color 
+            fontName: 'Cursive',    // i.e. 'Times New Roman'
+            fontSize: 20, // (don't specify px)
+            bold: true,
+            italic: false
+          },
+          vAxis: { title: 'Nº de Habitante por pessoal' },
+          hAxis: { title: 'Ano' },
+          seriesType: 'bars',
+          series: { 2: { type: 'line', color: 'green' } },
+          width: 900,
+          height: 500
+        };
+  
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+  
+        //document.getElementById('chart_div').style.display='none';// Invisivel por default
+      }
+  
+    </script>
+  
+    <!-- Gráfico 1-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart);
+  
+      function drawChart() {
+        // Porta Data
+        var data = google.visualization.arrayToDataTable([
+          ['Ano', 'Feminino', 'Masculino', 'Total'],
+          ['2001', 13, 19, 32],
+          ['2009', 24, 21, 45],
+          ['2010', 25, 20, 45],
+          ['2011', 25, 19, 44],
+          ['2012', 25, 20, 45],
+          ['2013', 28, 20, 48]
+        ]);
+  
+        var options = {
+          title: 'Médicos por sexo',
+          titleTextStyle: {
+            color: 'black',
+            fontName: 'Cursive',
+            fontSize: 20,
+            bold: true,
+            italic: false
+          },
+          vAxis: { title: 'Nº de Médicos' },
+          curveType: 'function',
+          legend: { position: 'right' },
+          width: 900,
+          height: 500
+        };
+  
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  
+        chart.draw(data, options);
+  
+        manageChart(1);
+      }
+    </script>
+  </div>
+    <!-- Slideshow -->
+    <footer>
+      <div class="box" id="box">
+          <div id="maisapoio">
+              <p><b>Número Europeu de Emergência:</b> 112 |    <b>Intoxicações:</b> 808 25 01 43 <br>
+                  
+              <b>Saúde 24:</b> 808 24 24 24 |  <b>Saúde Pública:</b> 808 211 311 <br>
+                  
+              <b>PSP Ovar:</b> 256 580 890 |  <b>Abraço:</b> 800 225 115 <br>
+                      
+              <b>APAV - Associação Portuguesa de Apoio à Vítima:</b> 707 200 077 <br>
+  
+              <b>Bombeiros Voluntários de Ovar:</b> 256 572 122 | <b>SOS Grávida:</b> 808 20 11 39 <br>
+                  
+              <b>Linha do Medicamento:</b> 800 222 444 | <b>Linha Cancro:</b> 808 255 255 <br>
+  
+              <b>Intoxicações e Envenenamentos:</b> 808 250 143 | <b>Linha Vida/SOS Droga:</b> 1414 <br>
+  
+              <b>Linha Medicamentos e Gravidez:</b> 800 20 28 44 | <b>Linha SIDA:</b> 800 266 666 <br>
+  
+              <b>Abraço-Apoio a pessoas com SIDA:</b> 800 225 115 | <b>SOS criança:</b> 800 202 651 <br>
+              
+              <b>Linha SOS SIDA:</b> 800 20 10 40 | <b>Linha do Cidadão Idoso:</b> 800 203 531 <br>
+  
+              <b>Linha Segurança Social:</b> 300 502 502 | <b> Narcóticos Anónimos:</b> 800 202 013 <br>
+  
+              <b>SOS suicídio:</b> 800 202 669 | <b>SOS deixar de fumar:</b> 808 208 888 <br>
+  
+              <b>Sexualidade Segura:</b> 800 202 120 | <b>Sexualidade em Linha:</b> 808 222 003 </p>           	
+          </div>
+          <div id="slideshow">
+              <div class="wrapper">
+              <div id="slides" class="slides">
+                  <img class="slide" src="img/slideshow/aniversário.jpg"></img>
+                  <img class="slide" src="img/slideshow/anonovo.jpg"></img>
+                  <img class="slide" src="img/slideshow/mascara.jpg"></img>
+                  <img class="slide" src="img/slideshow/stayawaycovid_linkedin_pt.png"></img>               
+              </div>
+              </div>
+          </div>
+          <a id="prev" class="control prev"></a>
+          <a id="next" class="control next"></a>
+      </div>
+      
+      <script type="text/javascript" src="js/USF.js"></script>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Unidade de Saude Familiar de Seia</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <script src="js/login.js"></script>
+</head>
+
+<body>
+    <div class="login-box">
+        <div class="form">
+            <img src="img\avatar.png" class="avatar">
+            <form class="register-form">
+                <h1>Registo</h1>
+                <input type="text" name="username_r" placeholder="Nome do Utilizador" id="username">
+                <input type="text" name="password_r" placeholder="Password" id="password">
+                <input type="text" name="email" placeholder="Email" id="email">
+                <button id="btn">Criar</button>
+                <p class="message">Já está Registado? <a href="#">Login</a></p>
+            </form>
+            <form class="login-form">
+                <h1>Login</h1>
+                <p>Nome de Utilizador</p>
+                <input type="text" name="username" placeholder="Nome de Utilizador" id="username">
+                <p>Password</p>
+                <input type="password" name="password" placeholder="Password" id="password">
+                <button id="btn">Entrar</button>
+                <p class="message">Não está Registado? <a href="#">Registar</a></p>
+        </div>
+        </form>
+    </div>
+
+
+    <script src='https://code.jquery.com/jquery-3.5.1.min.js'>
+    </script>
+    <script>
+        $('.message a').click(function(){
+            $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
+    </script>
+    <script type="text/javascript" src="js/login.js"></script>
+
+</body>
+
+</html>
